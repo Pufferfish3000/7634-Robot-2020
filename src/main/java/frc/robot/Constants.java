@@ -60,8 +60,8 @@ public final class Constants {
     public static final double START_LEMON = -0.9;
     public static final double STOP_LEMON = 0;
 
-    public static final double TURN_SPEED = 0.7;
-    public static final double DRIVE_SPEED = 0.7;
+    public static final double TURN_SPEED = 0.3;
+    public static final double DRIVE_SPEED = 0.3;
     public static final double DRIVE_STOP = 0;
     public static final double NEG_DRIVE_SPEED = -0.7;
     

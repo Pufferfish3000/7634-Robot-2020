@@ -72,13 +72,14 @@ public final class Constants {
     public static final double TUBERT_REVERSE = 0.5;
     public static final double TUBERT_STOP = 0;
     
-    public static final double LIFT_UP = -0.75;
-    public static final double LIFT_DOWN = 0.75;
+    public static final double LIFT_UP = -0.9;
+    public static final double LIFT_DOWN = 0.9;
     public static final double LIFT_STOP = 0;
     public static final double TRACK_SPEED_LEFT = 0.7;
     public static final double TRACK_SPEED_RIGHT = -0.7;   
     public static final double TRACK_STOP = 0;
 	public static final double TELEOP_SPEED = 0.8;
+	public static final double TRACKING_SPEED = 0.7;
 
     public static boolean TELEOP_DRIVE = true;
     public static boolean DEFENSIVE_DRIVE = false;

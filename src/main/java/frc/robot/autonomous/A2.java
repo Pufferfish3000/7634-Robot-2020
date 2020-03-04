@@ -5,12 +5,12 @@ package frc.robot.autonomous;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.DriveTrain;
 
-public class A1 extends CommandBase {
+public class A2 extends CommandBase {
   // getters
   private final DriveTrain m_driveTrain;
-  private int a1Time;
+  private int a2Time;
 
-  public A1(DriveTrain driveSub) {
+  public A2(DriveTrain driveSub) {
     // setters
     m_driveTrain = driveSub;
     // subsystem dependencies
@@ -20,14 +20,14 @@ public class A1 extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    a1Time = 0; // sets the "timer" to 0 when first called
+    a2Time = 0; // sets the "timer" to 0 when first called
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
     m_driveTrain.goBackwards();
-    a1Time++; // increments a1Time every time it executes
+    a2Time++; // increments a1Time every time it executes
   }
 
   // Called once the command ends or is interrupted.
@@ -39,7 +39,7 @@ public class A1 extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    if (a1Time >= 50) { // checks to see if the program has executes 150 times
+    if (a2Time >= 13) { // checks to see if the program has executes 150 times
       return true;
     } else {
       return false;

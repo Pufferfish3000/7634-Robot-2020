@@ -27,7 +27,7 @@ public class TrackingCommand extends CommandBase {
   }
 
   public double GetDriverRawAxisT(final int axis) {
-    return climbController.getRawAxis(axis);
+    return Constants.TRACKING_SPEED * climbController.getRawAxis(axis);
   }
   // Called when the command is initially scheduled.
   @Override

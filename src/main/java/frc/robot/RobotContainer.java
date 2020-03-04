@@ -70,11 +70,13 @@ public class RobotContainer {
   private final AEndCommand m_aEndCommand = new AEndCommand();
   private final ALemonShooter m_aLemonShooter = new ALemonShooter(m_lemonShooterSub, drivController);
   private final ATubertUp m_aTubertUp = new ATubertUp(m_tubertSub, drivController);
+  private final A2 m_a2 = new A2(m_driveTrain);
   private final AShoot m_aShoot = new AShoot(m_tubertSub, m_lemonShooterSub);
 
   //private final ParallelRaceGroup m_aTubeShoot = new ParallelRaceGroup(m_aTubertUp,m_aLemonShooter);
-  private final SequentialCommandGroup m_auto1 = new SequentialCommandGroup(m_aTargetingCommand,m_aShoot, m_a1, m_aEndCommand);
-  
+  //private final SequentialCommandGroup m_auto1 = new SequentialCommandGroup(m_aTargetingCommand, m_aShoot, m_a1, m_aEndCommand);
+  private final SequentialCommandGroup m_auto2 = new SequentialCommandGroup(m_aTargetingCommand,m_aShoot, m_a1, m_aEndCommand);
+  //private final SequentialCommandGroup m_auto3 = new SequentialCommandGroup(m_a2, m_aTurnLeft, m_aTargetingCommand, m_aShoot, m_a1, m_aEndCommand);
   // Button Bindings
   public RobotContainer() {
     // Configure the button 
@@ -108,10 +110,10 @@ public class RobotContainer {
     // ----------Comand Scheduler----------\\
     
     //driving controller
-    tubertButton.whenPressed(m_tubertGoUpCommand);
+    tubertButton.toggleWhenPressed(m_tubertGoUpCommand);
     shootLemonButton.toggleWhenPressed(m_shootLemonCommand);
     targetingButton.toggleWhenPressed(m_targetingCommand);
-    tubertDownButton.whenPressed(m_tubertGoDownCommand);
+    tubertDownButton.toggleWhenPressed(m_tubertGoDownCommand);
     defenseButton.toggleWhenPressed(m_defenseDriveToggleCommand);
 
     //climbing controller
@@ -126,7 +128,7 @@ public class RobotContainer {
    * @return the command to run in autonomous
    */
   public Command getAutonomousCommand() {
-    return m_auto1;
+    return m_auto2;
     // 1 is Left
     // 2 is Middle
     // 3 is Right

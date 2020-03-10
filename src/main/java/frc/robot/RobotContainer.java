@@ -75,7 +75,7 @@ public class RobotContainer {
 
   //private final ParallelRaceGroup m_aTubeShoot = new ParallelRaceGroup(m_aTubertUp,m_aLemonShooter);
   //private final SequentialCommandGroup m_auto1 = new SequentialCommandGroup(m_aTargetingCommand, m_aShoot, m_a1, m_aEndCommand);
-  private final SequentialCommandGroup m_auto2 = new SequentialCommandGroup(m_aTargetingCommand,m_aShoot, m_a1, m_aEndCommand);
+  private final SequentialCommandGroup m_auto2 = new SequentialCommandGroup(m_aShoot, m_a1, m_aEndCommand);
   //private final SequentialCommandGroup m_auto3 = new SequentialCommandGroup(m_a2, m_aTurnLeft, m_aTargetingCommand, m_aShoot, m_a1, m_aEndCommand);
   // Button Bindings
   public RobotContainer() {

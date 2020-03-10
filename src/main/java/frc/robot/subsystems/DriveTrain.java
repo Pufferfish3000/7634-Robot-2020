@@ -85,10 +85,10 @@ public class DriveTrain extends SubsystemBase {
   }
 
   public void goForward() {
-    driveTrainMotorLeft1.set(-Constants.DRIVE_SPEED);
-    driveTrainMotorLeft2.set(-Constants.DRIVE_SPEED);
-    driveTrainMotorRight1.set(Constants.DRIVE_SPEED);
-    driveTrainMotorRight2.set(Constants.DRIVE_SPEED);
+    driveTrainMotorLeft1.set(Constants.DRIVE_SPEED);
+    driveTrainMotorLeft2.set(Constants.DRIVE_SPEED);
+    driveTrainMotorRight1.set(-Constants.DRIVE_SPEED);
+    driveTrainMotorRight2.set(-Constants.DRIVE_SPEED);
   }
 
   public void goBackwards() {

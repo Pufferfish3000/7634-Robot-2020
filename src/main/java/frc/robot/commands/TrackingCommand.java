@@ -16,18 +16,15 @@ public class TrackingCommand extends CommandBase {
   //getters
   private final LiftSub m_liftSub;
   private final XboxController climbController;
-
+  private double guidarAxis;
   public TrackingCommand(LiftSub liftSub, XboxController Xbox) {
     //setters
     m_liftSub = liftSub;
     climbController = Xbox;
+    
     //subsystem dependencies
     addRequirements(m_liftSub);
 
-  }
-
-  public double GetDriverRawAxisT(final int axis) {
-    return Constants.TRACKING_SPEED * climbController.getRawAxis(axis);
   }
   // Called when the command is initially scheduled.
   @Override
@@ -37,9 +34,8 @@ public class TrackingCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    double rightStickY = GetDriverRawAxisT(Constants.LEFT_STICK_X);
-    double rightStickX = (0);
-    m_liftSub.traaaaaackinnnnnngggggg(rightStickY, rightStickX);
+    guidarAxis = climbController.getRawAxis(Constants.GUIDARAXIS);
+    m_liftSub.traaaaaaaaaaccccccccccccccckkkkkkkkkkkkkkiiiiiiiiinnnnnnnnnnnngggggggggg(guidarAxis*Constants.TRACKING_SPEED);
   }
 
   // Called once the command ends or is interrupted.

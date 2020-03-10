@@ -15,14 +15,11 @@ import frc.robot.Constants;
 public class LiftSub extends SubsystemBase {
   private final Victor liftMotor;
   private final Victor trackMotor;
-  private final Victor fakeMotorLol;
   private DifferentialDrive trackingDriveYeet;
 
   public LiftSub() {
     liftMotor = new Victor(Constants.LIFT_MOTOR);
     trackMotor = new Victor(Constants.TRACK_MOTOR);
-    fakeMotorLol = new Victor(12);
-    trackingDriveYeet = new DifferentialDrive(trackMotor,fakeMotorLol);
   }
 
   @Override
@@ -41,8 +38,8 @@ public class LiftSub extends SubsystemBase {
     liftMotor.set(Constants.LIFT_STOP);
   }
 
-  public void traaaaaackinnnnnngggggg(double left, double right) {
-    trackingDriveYeet.tankDrive(left, right);
+  public void traaaaaaaaaaccccccccccccccckkkkkkkkkkkkkkiiiiiiiiinnnnnnnnnnnngggggggggg (double sped){
+    trackMotor.set(sped);
   }
 
   public void stopTracking(){

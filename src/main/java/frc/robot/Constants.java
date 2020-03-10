@@ -55,6 +55,8 @@ public final class Constants {
     public static final int XBOX_LEFT_STICK_BUTTON = 9;
     public static final int XBOX_RIGHT_STICK_BUTTON = 10;
 
+    public static final int GUIDARAXIS = 0;
+
     // ----------Robot Constants---------- \\
 
     public static final double START_LEMON = -0.9;
@@ -65,7 +67,7 @@ public final class Constants {
     public static final double DRIVE_STOP = 0;
     public static final double NEG_DRIVE_SPEED = -0.7;
     
-    public static final double TARGETING_SPEED = 0.2;
+    public static final double TARGETING_SPEED = 0.3;
     public static final double TARGET_AXIS = 0.5;
 
     public static final double TUBERT_UP = -0.5;
@@ -79,7 +81,7 @@ public final class Constants {
     public static final double TRACK_SPEED_RIGHT = -0.7;   
     public static final double TRACK_STOP = 0;
 	public static final double TELEOP_SPEED = 0.8;
-	public static final double TRACKING_SPEED = 0.7;
+	public static final double TRACKING_SPEED = 1;
 
     public static boolean TELEOP_DRIVE = true;
     public static boolean DEFENSIVE_DRIVE = false;

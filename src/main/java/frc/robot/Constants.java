@@ -31,8 +31,11 @@ public final class Constants {
 
     public static final int LIFT_MOTOR = 6;
     public static final int TRACK_MOTOR = 7;
+    public static final int INTAKE_MOTOR = 8;
+    
     public static final int COMPRESSOR_PORT = 0; // Not a Rio Port but whatever ¯\_(ツ)_/¯
     public static final int SOLENOID = 0; // Alse not a Rio Port
+    public static final int INTAKE_SOLENOID = 1;
      
     // ----------Controller---------- \\
 
@@ -77,12 +80,18 @@ public final class Constants {
     public static final double LIFT_UP = -0.9;
     public static final double LIFT_DOWN = 0.9;
     public static final double LIFT_STOP = 0;
+
     public static final double TRACK_SPEED_LEFT = 0.7;
     public static final double TRACK_SPEED_RIGHT = -0.7;   
     public static final double TRACK_STOP = 0;
-	public static final double TELEOP_SPEED = 0.8;
-	public static final double TRACKING_SPEED = 1;
+    public static final double TRACKING_SPEED = 1;
 
+    public static final double TELEOP_SPEED = 0.8;
+    
+	public static final double INTAKE_MOTOR_SPEED = 1;
+	public static final double INTAKE_MOTOR_STOP_SPEED = 0;
+
+    //booleans
     public static boolean TELEOP_DRIVE = true;
     public static boolean DEFENSIVE_DRIVE = false;
     public static boolean AUTO_BOOL = false;   

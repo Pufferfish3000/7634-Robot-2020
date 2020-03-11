@@ -7,45 +7,35 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.LemonShooterSub;
-import frc.robot.subsystems.TubertSub;
+import frc.robot.subsystems.IntakeSub;
 
-public class ShootLemonCommand extends CommandBase {
-  // getters
-  private final TubertSub m_tubertSub;
-  private final LemonShooterSub m_lemonShooterSub;
-  private int aTubertUpTime;
+public class SecondaryIntakeCommand extends CommandBase {
+  private final IntakeSub m_intakeSub;
 
-  public ShootLemonCommand(TubertSub tubeSub, LemonShooterSub lemonSub) {
-    //setters
-    m_lemonShooterSub = lemonSub;
-    m_tubertSub = tubeSub;
-    //subsystem dependencies
-    addRequirements(m_tubertSub,m_lemonShooterSub);
-
+  public SecondaryIntakeCommand(IntakeSub intakeSubYeet) {
+    m_intakeSub = intakeSubYeet;
+    addRequirements(m_intakeSub);
   }
 
-// Called when the command is initially scheduled.
+  // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    System.out.println("Lemon Shooter Active");
+
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_tubertSub.tubertUp();
-    m_lemonShooterSub.startLemonShooterMotor();
+    m_intakeSub.intakePistonOn();
+    m_intakeSub.intakeMotorIsOn();
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    m_tubertSub.tubertStop();
-    m_lemonShooterSub.stopLemonShooterMotor();
-    System.out.println("Lemon Shooter InActive");
+    m_intakeSub.intakePistonOff();
+    m_intakeSub.intakeMotorIsOff();
   }
 
   // Returns true when the command should end.

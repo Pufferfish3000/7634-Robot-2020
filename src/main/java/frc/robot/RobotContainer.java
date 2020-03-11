@@ -7,18 +7,21 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.DefenseDriveToggleCommand;
 import frc.robot.commands.DriveCommand;
 import frc.robot.commands.LiftRobotCommand;
 import frc.robot.commands.LowerRobotCommand;
 import frc.robot.commands.RaiseLiftArmCommand;
+import frc.robot.commands.SecondaryIntakeCommand;
 import frc.robot.commands.ShootLemonCommand;
 import frc.robot.commands.TargetingCommand;
 import frc.robot.commands.TrackingCommand;
 import frc.robot.commands.TubertGoDownCommand;
 import frc.robot.commands.TubertGoUpCommand;
 import frc.robot.subsystems.DriveTrain;
+import frc.robot.subsystems.IntakeSub;
 import frc.robot.subsystems.LemonShooterSub;
 import frc.robot.subsystems.LiftSub;
 import frc.robot.subsystems.LimeLightSub;
@@ -43,6 +46,7 @@ public class RobotContainer {
   private final LemonShooterSub m_lemonShooterSub = new LemonShooterSub();
   private final LiftSub m_liftSub = new LiftSub();
   private final StupidFrigginPistonSub m_stupidFrigginPistonSub = new StupidFrigginPistonSub();
+  private final IntakeSub m_intakeSub = new IntakeSub();
 
   //commands
   private final DefenseDriveToggleCommand m_defenseDriveToggleCommand = new DefenseDriveToggleCommand();
@@ -54,7 +58,7 @@ public class RobotContainer {
   private final TubertGoUpCommand m_tubertGoUpCommand = new TubertGoUpCommand(m_tubertSub, drivController);
   private final TubertGoDownCommand m_tubertGoDownCommand = new TubertGoDownCommand(m_tubertSub, drivController);
 
-  private final ShootLemonCommand m_shootLemonCommand = new ShootLemonCommand(m_lemonShooterSub, drivController);
+  private final ShootLemonCommand m_shootLemonCommand = new ShootLemonCommand(m_tubertSub, m_lemonShooterSub);
 
   private final LiftRobotCommand m_liftRobotCommand = new LiftRobotCommand(m_liftSub);
   
@@ -62,6 +66,8 @@ public class RobotContainer {
   private final TrackingCommand m_trackingCommand = new TrackingCommand(m_liftSub, climbController);
 
   private final RaiseLiftArmCommand m_raiseLiftArmCommand = new RaiseLiftArmCommand(m_stupidFrigginPistonSub);
+
+  private final SecondaryIntakeCommand m_secondaryIntakeCommand = new SecondaryIntakeCommand(m_intakeSub);
 
   private final A1 m_a1 = new A1(m_driveTrain); // Autonomous
   private final ATurnRight m_aTurnRight = new ATurnRight(m_driveTrain);
@@ -98,9 +104,10 @@ public class RobotContainer {
     //driving controller
     final JoystickButton tubertButton = new JoystickButton(drivController, Constants.XBOX_LEFT_BUMPER);
     final JoystickButton shootLemonButton = new JoystickButton(drivController, Constants.XBOX_RIGHT_BUMPER);
-    final JoystickButton targetingButton = new JoystickButton(drivController, Constants.XBOX_A_BUTTON);
+    //final JoystickButton targetingButton = new JoystickButton(drivController, Constants.XBOX_A_BUTTON);
     final JoystickButton tubertDownButton = new JoystickButton(drivController, Constants.XBOX_B_BUTTON);
-    final JoystickButton defenseButton = new JoystickButton(drivController, Constants.XBOX_Y_BUTTON);
+    final JoystickButton intakeButton = new JoystickButton(drivController, Constants.XBOX_Y_BUTTON);
+    //final JoystickButton defenseButton = new JoystickButton(drivController, Constants.XBOX_Y_BUTTON);
     
     //climbing controller
     final JoystickButton raiseArmButton = new JoystickButton(climbController, Constants.XBOX_Y_BUTTON);
@@ -110,11 +117,12 @@ public class RobotContainer {
     // ----------Comand Scheduler----------\\
     
     //driving controller                       
-    tubertButton.toggleWhenPressed(m_tubertGoUpCommand);
+    tubertButton.whenPressed(m_tubertGoUpCommand);
     shootLemonButton.toggleWhenPressed(m_shootLemonCommand);
-    targetingButton.toggleWhenPressed(m_targetingCommand);
-    tubertDownButton.toggleWhenPressed(m_tubertGoDownCommand);
-    defenseButton.toggleWhenPressed(m_defenseDriveToggleCommand);
+    //targetingButton.toggleWhenPressed(m_targetingCommand);
+    tubertDownButton.whenPressed(m_tubertGoDownCommand);
+    intakeButton.whenPressed(m_secondaryIntakeCommand);
+    //defenseButton.toggleWhenPressed(m_defenseDriveToggleCommand);
 
     //climbing controller
     raiseArmButton.toggleWhenPressed(m_raiseLiftArmCommand);
